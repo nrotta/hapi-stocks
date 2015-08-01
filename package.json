@@ -1,0 +1,33 @@
+{
+  "name": "hapi-stocks",
+  "version": "0.0.1",
+  "description": "restful hapi api for managing a stock portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/lab -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nrotta/hapi-stocks.git"
+  },
+  "keywords": [
+    "hapi",
+    "stocks",
+    "portfolio",
+    "api"
+  ],
+  "author": "Nicolas Rotta",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/nrotta/hapi-stocks/issues"
+  },
+  "homepage": "https://github.com/nrotta/hapi-stocks",
+  "dependencies": {
+    "glue": "^2.1.1",
+    "hapi-mongo-models": "^2.2.0",
+    "joi": "^6.6.1",
+    "mongodb": "^2.0.39",
+    "nodemon": "^1.4.0",
+    "object-assign": "^3.0.0"
+  }
+}

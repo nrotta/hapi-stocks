@@ -1,0 +1,24 @@
+{
+  "server": {
+    "debug": {
+      "request": ["error"]
+    }
+  },
+  "connections": [{
+    "host": "localhost",
+    "port": 8080
+  }],
+  "plugins": {
+    "./routes/stocks": {},
+    "hapi-mongo-models": {
+       "mongodb": {
+         "url": "mongodb://localhost:27017/stocks",
+         "options": {}
+       },
+       "autoIndex": false,
+       "models": {
+         "stock": "./models/stock"
+       }
+    }
+  }
+}

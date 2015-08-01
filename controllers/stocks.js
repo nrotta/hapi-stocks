@@ -23,17 +23,33 @@ StocksController.prototype.show = function(request, reply) {
 
 // [POST] /stocks
 StocksController.prototype.store = function(request, reply) {
-  reply("store");
+  var ticker = {
+    symbol: request.payload.symbol
+  };
+
+  stock.addStock(ticker, function(err, result) {
+    reply(result).code(200);
+  });
 };
 
 // [PUT] /stocks/{id}
 StocksController.prototype.update = function(request, reply) {
-  reply("update");
+  var id = request.params.id;
+  var ticker = {
+    symbol: request.payload.symbol
+  };
+
+  stock.updateStock(id, ticker, function(err, result) {
+    reply(result).code(200);
+  });
 };
 
 // [DELETE] /stocks/{id}
 StocksController.prototype.destroy = function(request, reply) {
-  reply("destroy");
+  var id = request.params.id;
+  stock.destroyStock(id, function(err, result) {
+    reply(result).code(200);
+  });
 };
 
 module.exports = StocksController;

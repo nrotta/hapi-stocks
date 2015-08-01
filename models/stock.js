@@ -18,7 +18,7 @@ stock.schema = Joi.object().keys({
 
 stock.prototype.getStocks = function(callback) {
   stock.pagedFind({}, {}, {}, {}, {}, function(err, results) {
-    if (err)
+    if(err)
       callback(err);
     else
       callback(null, results.data);
@@ -26,11 +26,38 @@ stock.prototype.getStocks = function(callback) {
 };
 
 stock.prototype.getStock = function(id, callback) {
-  stock.findById(id, function(err, results) {
-    if (err)
+  stock.findById(id, function(err, result) {
+    if(err)
       callback(err);
     else
-      callback(null, results);
+      callback(null, result);
+  });
+};
+
+stock.prototype.addStock = function(ticker, callback) {
+  stock.insertOne(ticker, function(err, result) {
+    if(err)
+      callback(err);
+    else
+      callback(null, result);
+  });
+};
+
+stock.prototype.updateStock = function(id, ticker, callback) {
+  stock.findByIdAndUpdate(id, ticker, function(err, result) {
+    if(err)
+      callback(err);
+    else
+      callback(null, result);
+  });
+};
+
+stock.prototype.destroyStock = function(id, callback) {
+  stock.findByIdAndDelete(id, function(err, result) {
+    if(err)
+      callback(err);
+    else
+      callback(null, result);
   });
 };
 

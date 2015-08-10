@@ -4,7 +4,7 @@
 var Stock = require('../models/stock');
 var stock = new Stock();
 
-function StocksController() { };
+function StocksController() {};
 
 // [GET] /stocks
 StocksController.prototype.index = function(request, reply) {

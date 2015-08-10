@@ -4,7 +4,7 @@ var StocksController = require('../controllers/stocks');
 var stocksController = new StocksController();
 
 // Stock routes
-var Routes = [{
+var routes = [{
   method: 'GET',
   path:'/stocks',
   handler: stocksController.index
@@ -27,18 +27,18 @@ var Routes = [{
 }];
 
 // Define register function
-var routes = {
+var Routes = {
   register: function(server, options, next) {
     server.bind(stocksController);
-    server.route(Routes);
+    server.route(routes);
     next();
   }
 };
 
 // Define attributes
-routes.register.attributes = {
+Routes.register.attributes = {
   name: 'stock-routes',
   version: '0.0.1'
 };
 
-module.exports = routes;
+module.exports = Routes;
